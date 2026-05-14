@@ -58,7 +58,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # FreeRTOS configuration
 add_library(freertos_config INTERFACE)
-target_include_directories(freertos_config SYSTEM INTERFACE App/)
+target_include_directories(freertos_config SYSTEM INTERFACE app/)
 
 set(FREERTOS_PORT GCC_ARM_CM7 CACHE STRING "")
 set(FREERTOS_HEAP 4 CACHE STRING "")
