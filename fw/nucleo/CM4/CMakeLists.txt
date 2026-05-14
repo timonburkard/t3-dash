@@ -56,6 +56,14 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     app/
 )
 
+# FreeRTOS configuration
+add_library(freertos_config INTERFACE)
+target_include_directories(freertos_config SYSTEM INTERFACE App/)
+
+set(FREERTOS_PORT GCC_ARM_CM7 CACHE STRING "")
+set(FREERTOS_HEAP 4 CACHE STRING "")
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../FreeRTOS ${CMAKE_BINARY_DIR}/FreeRTOS)
+
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
@@ -68,8 +76,9 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 )
 
 # Add linked libraries
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
+target_link_libraries(${CMAKE_PROJECT_NAME}
     # Add user defined libraries
+    freertos_kernel
 )
 
 # Remove wrong libob.a library dependency when using cpp files
