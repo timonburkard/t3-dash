@@ -31,7 +31,7 @@ set(STM32_LINKER_OPTION  )
 
 # Set the project name
 set(CMAKE_PROJECT_NAME t3-dash_CM7)
-project(${CMAKE_PROJECT_NAME})
+project(${CMAKE_PROJECT_NAME} LANGUAGES C ASM)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
