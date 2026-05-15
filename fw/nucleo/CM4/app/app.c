@@ -7,6 +7,7 @@
 #include "conversion.h"
 #include "filtering.h"
 #include "main.h"
+#include "publication.h"
 #include "task.h"
 
 QueueHandle_t queue_data_raw;
@@ -42,6 +43,10 @@ void app(void)
     }
 
     if (xTaskCreate(filtering_task, "Filtering Task", 512, NULL, 1, NULL) != pdPASS) {
+        while (true) {} // TODO: Error handling
+    }
+
+    if (xTaskCreate(publication_task, "Publication Task", 512, NULL, 1, NULL) != pdPASS) {
         while (true) {} // TODO: Error handling
     }
 

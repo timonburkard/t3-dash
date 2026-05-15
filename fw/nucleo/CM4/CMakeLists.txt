@@ -57,6 +57,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     app/acquisition/
     app/conversion/
     app/filtering/
+    app/publication
 )
 
 # FreeRTOS configuration
@@ -74,6 +75,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     app/acquisition/acquisition.c
     app/conversion/conversion.c
     app/filtering/filtering.c
+    app/publication/publication.c
 )
 
 # Link directories setup
