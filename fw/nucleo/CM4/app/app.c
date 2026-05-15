@@ -14,7 +14,7 @@ QueueHandle_t queue_data_raw;
 QueueHandle_t queue_data_converted;
 QueueHandle_t queue_data_filtered;
 
-void led_task(void* params);
+static void heartbeat_task(void* params);
 
 void app(void)
 {
@@ -30,7 +30,7 @@ void app(void)
         while (true) {} // TODO: Error handling
     }
 
-    if (xTaskCreate(led_task, "LED Task", 512, NULL, 1, NULL) != pdPASS) {
+    if (xTaskCreate(heartbeat_task, "Heartbeat Task", 512, NULL, 1, NULL) != pdPASS) {
         while (true) {} // TODO: Error handling
     }
 
@@ -57,10 +57,12 @@ void app(void)
     }
 }
 
-void led_task(void* params)
+static void heartbeat_task(void* params)
 {
     while (true) {
-        HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
-        vTaskDelay(pdMS_TO_TICKS(500));
+        HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
+        vTaskDelay(pdMS_TO_TICKS(50));
+        HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
+        vTaskDelay(pdMS_TO_TICKS(950));
     }
 }
