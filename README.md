@@ -44,3 +44,13 @@ flowchart TB
 
     HB -->|toggle every 1 s| LED
 ```
+
+#### M7
+
+```mermaid
+flowchart TB
+    HB[Heartbeat Task]
+    LED[(LD2)]
+
+    HB -->|toggle every 1 s| LED
+```
