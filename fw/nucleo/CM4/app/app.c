@@ -34,19 +34,19 @@ void app(void)
         while (true) {} // TODO: Error handling
     }
 
-    if (xTaskCreate(acquisition_task, "Acquisition Task", 512, NULL, 2, NULL) != pdPASS) {
+    if (xTaskCreate(acquisition_task, "Acquisition Task", 512, NULL, 3, NULL) != pdPASS) {
         while (true) {} // TODO: Error handling
     }
 
-    if (xTaskCreate(conversion_task, "Conversion Task", 512, NULL, 1, NULL) != pdPASS) {
+    if (xTaskCreate(conversion_task, "Conversion Task", 512, NULL, 2, NULL) != pdPASS) {
         while (true) {} // TODO: Error handling
     }
 
-    if (xTaskCreate(filtering_task, "Filtering Task", 512, NULL, 1, NULL) != pdPASS) {
+    if (xTaskCreate(filtering_task, "Filtering Task", 512, NULL, 2, NULL) != pdPASS) {
         while (true) {} // TODO: Error handling
     }
 
-    if (xTaskCreate(publication_task, "Publication Task", 512, NULL, 1, NULL) != pdPASS) {
+    if (xTaskCreate(publication_task, "Publication Task", 512, NULL, 2, NULL) != pdPASS) {
         while (true) {} // TODO: Error handling
     }
 
