@@ -58,8 +58,12 @@ void MX_USART3_UART_Init(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define SENSOR_03_BATTERY_VOLTAGE_Pin GPIO_PIN_6
+#define SENSOR_03_BATTERY_VOLTAGE_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
+#define SENSOR_01_WATER_TEMPERATURE_Pin GPIO_PIN_11
+#define SENSOR_01_WATER_TEMPERATURE_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
 
