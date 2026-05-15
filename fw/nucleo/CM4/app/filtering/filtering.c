@@ -19,19 +19,18 @@ void filtering_task(void* params)
 
     while (true) {
         if (xQueueReceive(queue_data_converted, &data, portMAX_DELAY) == pdTRUE) {
-
             switch (data.id) {
-            case SENSOR_ID_WATER_TEMPERATURE:
-                data.value = filter_water_temperature(data.value);
-                break;
+                case SENSOR_ID_WATER_TEMPERATURE:
+                    data.value = filter_water_temperature(data.value);
+                    break;
 
-            case SENSOR_ID_BATTERY_VOLTAGE:
-                data.value = filter_battery_voltage(data.value);
-                break;
+                case SENSOR_ID_BATTERY_VOLTAGE:
+                    data.value = filter_battery_voltage(data.value);
+                    break;
 
-            default:
-                while (true) {} // TODO: Error handling
-                break;
+                default:
+                    while (true) {} // TODO: Error handling
+                    break;
             }
 
             if (xQueueSend(queue_data_filtered, &data, portMAX_DELAY) != pdTRUE) {
