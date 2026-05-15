@@ -31,7 +31,7 @@ set(STM32_LINKER_OPTION  )
 
 # Set the project name
 set(CMAKE_PROJECT_NAME t3-dash_CM4)
-project(${CMAKE_PROJECT_NAME})
+project(${CMAKE_PROJECT_NAME} LANGUAGES C ASM)
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
@@ -54,6 +54,10 @@ enable_language(C ASM)
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     app/
+    app/acquisition/
+    app/conversion/
+    app/filtering/
+    app/publication
 )
 
 # FreeRTOS configuration
@@ -68,6 +72,10 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../FreeRTOS ${CMAKE_BINARY_DIR}/Fre
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     app/app.c
+    app/acquisition/acquisition.c
+    app/conversion/conversion.c
+    app/filtering/filtering.c
+    app/publication/publication.c
 )
 
 # Link directories setup

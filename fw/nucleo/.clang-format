@@ -57,8 +57,8 @@ DerivePointerAlignment: false
 EmptyLineAfterAccessModifier: Always
 EmptyLineBeforeAccessModifier: Always
 FixNamespaceComments: true
-IndentCaseBlocks: false
-IndentCaseLabels: false
+IndentCaseBlocks: true
+IndentCaseLabels: true
 IndentExternBlock: NoIndent
 IndentGotoLabels: false
 IndentPPDirectives: None

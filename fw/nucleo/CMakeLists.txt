@@ -15,8 +15,7 @@ set(CMAKE_CXX_COMPILER_FORCED "true")
 set(CMAKE_PROJECT_NAME t3-dash)
 
 # Core project settings
-project(${CMAKE_PROJECT_NAME})
+project(${CMAKE_PROJECT_NAME} LANGUAGES C ASM)
 
 # Include external project file
 include("mx-generated.cmake")
-
